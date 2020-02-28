@@ -1,6 +1,7 @@
 package com.example.lotteryfragmentthree;
 
-import android.app.ListFragment;
+import androidx.fragment.app.ListFragment;
+
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
@@ -12,7 +13,13 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
+// See for ListFragment: https://developer.android.com/reference/androidx/fragment/app/ListFragment
 public class MyListFragment extends ListFragment implements OnItemClickListener {
+
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -23,8 +30,11 @@ public class MyListFragment extends ListFragment implements OnItemClickListener 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.players, android.R.layout.simple_list_item_1);
+        // Creates a new ArrayAdapter from external resources
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(Objects.requireNonNull(getActivity()),
+                // Can be opened and changed directly with CTRL + left click:
+                // See update in new layout file (italic style)
+                R.array.players, R.layout.my_list_layout);
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
     }
@@ -32,5 +42,6 @@ public class MyListFragment extends ListFragment implements OnItemClickListener 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(getActivity(), "Item at position " + position + ": " + getListView().getItemAtPosition(position).toString(), Toast.LENGTH_LONG).show();
+
     }
 }
