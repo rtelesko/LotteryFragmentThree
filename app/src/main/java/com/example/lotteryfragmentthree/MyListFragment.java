@@ -32,8 +32,7 @@ public class MyListFragment extends ListFragment implements OnItemClickListener 
         super.onActivityCreated(savedInstanceState);
         // Creates a new ArrayAdapter from external resources
         ArrayAdapter adapter = ArrayAdapter.createFromResource(Objects.requireNonNull(getActivity()),
-                // Can be opened and changed directly with CTRL + left click:
-                // See update in new layout file (italic style)
+                // Layout can be opened and changed directly with CTRL + left mouse click: See update in new layout file (italic style)
                 R.array.players, R.layout.my_list_layout);
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
