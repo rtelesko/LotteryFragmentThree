@@ -13,8 +13,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 // See for ListFragment: https://developer.android.com/reference/androidx/fragment/app/ListFragment
